@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const MONGODB_URI_PROD = process.env.MONGODB_URI_PROD;
+const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
 // JSON 요청 본문을 처리
@@ -25,6 +26,6 @@ mongoose
   });
 
 // 서버 시작
-app.listen(process.env.PORT, () => {
-  console.log('Server listening on port ' + process.env.PORT);
+app.listen(PORT || 5001, () => {
+  console.log('Server listening on port ' + PORT);
 });
