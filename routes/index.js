@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.use('/tasks', taskApi);
 router.use('/user', userApi);
-
+router.use('/user/login', userApi);
 export default router;
