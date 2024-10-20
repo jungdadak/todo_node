@@ -25,6 +25,6 @@ mongoose
   });
 
 // 서버 시작
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server listening on port ' + process.env.PORT);
 });
