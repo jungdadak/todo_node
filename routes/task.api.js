@@ -3,7 +3,7 @@ import taskController from "../controller/task.controller.js";
 import authController from "../controller/auth.controller.js";
 const router = express.Router();
 
-router.post("/", authController.autehticate, taskController.createTask);
+router.post("/", authController.authenticate, taskController.createTask);
 router.get("/", taskController.getTask);
 
 router.put("/:id", taskController.updateTask);
