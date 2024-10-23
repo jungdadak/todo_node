@@ -40,3 +40,14 @@ userController.loginUser = async (req, res) => {
 };
 
 export default userController;
+
+userController.getUser = async (req, res) => {
+	try {
+		const { userId } = req;
+		const user = User.findById(userId);
+		if (!user) {
+			throw new Error("사용자를 찾을 수 없습니다.");
+		}
+		res.status(200).json({ status: "success", user });
+	} catch (error) {}
+};
