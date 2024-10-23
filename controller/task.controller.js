@@ -14,10 +14,13 @@ taskController.createTask = async (req, res) => {
 };
 taskController.getTask = async (req, res) => {
 	try {
-		const taskList = await Task.find().select("-__v").populate("author");
+		const taskList = await Task.find().select("-__v").populate("author", "name"); // 필요한 필드만 선택 가능
 		res.status(200).json({ status: "ok", data: taskList });
 	} catch (err) {
-		res.status(400).json({ status: "fail", error: err });
+		console.error(err);
+		res
+			.status(500)
+			.json({ status: "fail", message: "서버 오류가 발생했습니다." });
 	}
 };
 
